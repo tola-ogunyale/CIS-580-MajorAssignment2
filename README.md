@@ -7,3 +7,4 @@ SoldPrice =  Estimate Cost x 1.1
 MarginOfProfit  = Sold Price -  Actual Cost
 
 Chart and table were generated using d3.js
+Color scheme provided by color brewer
