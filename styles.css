@@ -1,0 +1,128 @@
+
+body { 
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 50px;
+    
+}
+
+#table_container {
+    width: auto;
+    height: auto;
+}
+#chart_container {
+    width: auto;
+    height: auto;
+}
+
+/* TABLE STYLING */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size:large;
+    text-align: center;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    font-family: 'Roboto', sans-serif;
+}
+tr, td {
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+table tr:first-child {
+    /* background-color: #eee; */
+    font-weight: bold;
+    
+    
+}
+
+table tr:first-child td:nth-child(2) {background-color:rgb(141,211,199)}
+table tr:first-child td:nth-child(6) {background-color:rgb(255,255,179)} 
+table tr:first-child td:nth-child(7) {background-color:rgb(190,186,218)} 
+table tr:first-child td:nth-child(8) {background-color:rgb(251,128,114)}
+
+table tr:first-child, table td {
+    padding: 12px 15px;
+}
+
+table tr:not(:first-child) {
+    border-bottom: 1px solid #dddddd;
+}
+
+table tr:not(:first-child):nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+table tr:not(:first-child):nth-child(even):hover {
+    color: black;
+    background-color: aliceblue;
+}
+
+table tr:not(:first-child):hover {
+    color: black;
+    background-color: aliceblue;
+}
+
+table tr:not(:first-child):hover td:nth-child(2) { background-color:rgb(141,211,199)} 
+table tr:not(:first-child):hover td:nth-child(6) { background-color:rgb(255,255,179)} 
+table tr:not(:first-child):hover td:nth-child(7) { background-color:rgb(190,186,218)} 
+table tr:not(:first-child):hover td:nth-child(8) { background-color:rgb(251,128,114)}
+
+
+/* SVG STYLING */
+svg {
+    width: 1000px;
+    height: 800px;
+
+    background-color: white;
+}
+
+path {
+    stroke-width: 3px;
+    fill: none; 
+}
+
+.axis path {
+    stroke:none;
+}
+.axis text {
+    font-weight: 500;
+}
+
+.axis .tick line {
+    visibility: hidden;
+}
+.grid path {
+    stroke: none;
+}
+.grid .tick line {
+    stroke: rgba(231,231,231,255)
+}
+
+.estimated {stroke:rgb(141,211,199)} 
+.actual {stroke:rgb(255,255,179)} 
+.sold {stroke:rgb(190,186,218)} 
+.margin {stroke:rgb(251,128,114)}
+
+/* legend */
+.legend {font-family: 'Roboto', sans-serif;}
+.legend_estimated rect {fill:rgb(141,211,199)} 
+.legend_actual rect {fill:rgb(255,255,179)} 
+.legend_sold rect {fill:rgb(190,186,218)} 
+.legend_margin rect {fill:rgb(251,128,114)}
