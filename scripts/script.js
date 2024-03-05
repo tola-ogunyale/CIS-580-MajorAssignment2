@@ -8,7 +8,7 @@ const margins = {
 }
 
 // Select svg
-let svg = d3.select('svg')
+let svg = d3.select("svg")
 
 // Obtain data
 d3.csv("data\\data.csv").then(data=>{
@@ -32,7 +32,7 @@ d3.csv("data\\data.csv").then(data=>{
 
     // DOMAIN + RANGE
     // Find the range
-    let rng = svg.attr('viewBox').split(' ')
+    let rng = svg.attr("viewBox").split(" ")
     rng = d3.map(rng, function (d){
         return parseInt(d)
     })
@@ -41,7 +41,7 @@ d3.csv("data\\data.csv").then(data=>{
     let yRng = [rng[1], rng[3]]
 
     // Find the data domain
-    const colOfInterest = ['EstimatedCost', "ActualCost", "SoldPrice", "Margin of Profit"]
+    const colOfInterest = ["EstimatedCost", "ActualCost", "SoldPrice", "Margin of Profit"]
 
     // Iterate through required 4 columns
     colOfInterest.forEach(col => {
@@ -99,12 +99,12 @@ d3.csv("data\\data.csv").then(data=>{
 
     let LineGen_margin = d3.line()
         .x(function (d){return xScale(new Date(d.date))})
-        .y(function (d){return yScale(d['Margin of Profit'])})
+        .y(function (d){return yScale(d["Margin of Profit"])})
 
 
     // Draw to SVG
     // Draw  y axis grid line
-    svg.append('g')
+    svg.append("g")
         .attr("class","grid")
         .attr("transform", `translate(${margins.left},0)`)
         .call(d3.axisRight().scale(yScale)
@@ -119,7 +119,7 @@ d3.csv("data\\data.csv").then(data=>{
         .style("stroke", "rgba(24,24,24,255)")
 
     // Draw x axis
-    svg.append('g')
+    svg.append("g")
         .attr("class", "axis")
         .attr("transform",`translate(0, ${height-margins.bottom})`)
         .call(xAxis.tickFormat(d3.timeFormat("%b '%y")))
@@ -134,31 +134,31 @@ d3.csv("data\\data.csv").then(data=>{
     let fig = svg.append("g")
     fig = fig.data([data])
     // Estimated Cost Line
-    fig.append('path')
+    fig.append("path")
         .attr("d", function (d){return LineGen_estcost(d)})
         .attr("class", "estimated")
     // Actual Cost Line
-    fig.append('path')
+    fig.append("path")
         .attr("d", function (d){return LineGen_actual(d)})
         .attr("class", "actual")
     // Sold Price Line
-    fig.append('path')
+    fig.append("path")
         .attr("d", function (d){return LineGen_sold(d)})
         .attr("class", "sold")
     // Margin of Profits Line
-    fig.append('path')
+    fig.append("path")
         .attr("d", function (d){return LineGen_margin(d)})
         .attr("class", "margin")
         
 
     // Draw y axis
-    svg.append('g')
+    svg.append("g")
         .attr("class", "axis")
         .attr("transform", `translate(${margins.left},0)`)
         .call(yAxis)
     
     // Draw Legend
-    const legend = svg.append('g')
+    const legend = svg.append("g")
         .attr("class", "legend")
         .attr("transform", "translate(0,10)")
         .selectAll()
@@ -176,8 +176,8 @@ d3.csv("data\\data.csv").then(data=>{
             })
 
         legend.append("rect")
-            .attr('width',"8px")
-            .attr('height',"8px")
+            .attr("width","8px")
+            .attr("height","8px")
         legend.append("text")
             .text(d=>d.name)
             .attr("dx","20px")
@@ -212,7 +212,7 @@ function TableGenerator(data,container){
     .selectAll(".td")
     .data((d,i)=> {
         if(i===0){
-            return Object.keys(d);
+            return Object.keys(d)
         }
         else{
             return Object.values(d)
